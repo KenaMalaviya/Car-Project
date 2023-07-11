@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+
+<div class="container table-responsible my-5">
+    <nav class="navbar navbar-light"  style="background-color: #e3f2fd;">
+        <form class="form-inline my-2 my-lg-0" method="GET" action="/search">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" name="query" id="search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </nav>
+<table class="table  table-hover">
+    <!-- As a heading -->
+   
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Carname</th>
+        <th scope="col">Brand</th>
+        <th scope="col">Oil-changing</th>
+        <th scope="col">Batteries</th>
+        <th scope="col">Engine_Service</th>
+        <th scope="col">Tires_Wheels</th>
+        <th scope="col">Steering_Suspension</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for cp in menu_price %}
+      <tr>
+        <td>{{cp.car_name}}</td>
+        <td>{{cp.brand_name}}</td>
+        <td>&#8377;{{cp.oil_changing_price}}</td>
+        <td>&#8377;{{cp.batteries}}</td>
+        <td>&#8377;{{cp.engine_service}}</td>
+        <td>&#8377;{{cp.tire_wheel}}</td>
+        <td>&#8377;{{cp.steering_suspension}}</td>
+
+
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% endblock body %}

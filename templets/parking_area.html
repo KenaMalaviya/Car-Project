@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+
+<!--  --> <!--  --> <!--  -->
+
+<section class="page_breadcrumbs cs background_cover section_padding_top_40 section_padding_bottom_40">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12 text-center">
+				<h2>Nearest Parking Area</h2>
+				<ol class="breadcrumb">
+					<li>
+						<a href="/">
+							Home
+						</a>
+					</li>
+					<li class="active">Parking Area</li>
+				</ol>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<!--  --> <!--  --> <!--  -->
+
+<!-- <div class="tex" style="background: black;color: white">
+	<br>
+	<h1>Parking Area Page</h1>
+	<h1>👨‍💻👨‍💻👨‍💻👨‍💻👨‍💻👨‍💻</h1>
+	<h1>Page Under Construction</h1>
+	<br>
+</div> -->
+
+
+<div class="with_background with_padding"  style="border-radius: 15px; margin: -10px;">
+
+	<b>Your Postal Code is: {{ postal }}</b><br>
+
+	<form class="shop-register" method="POST" autocomplete="off">{% csrf_token %}
+		<div class="col-sm-3">
+			<div class="form-group" id="billing_company_field">
+				<input type="number" class="form-control" id="number" pattern="^[0-9]{6}$"
+						placeholder="Pincode" name="pincode" required style="border-radius: 10px;">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-2">
+				<div class="form-group has-placeholder">
+						<div>
+							<input value="Search Parking Area" class="btnprimary"
+							style="border-radius: 10px;" type="submit">
+						</div>
+				</div>
+			</div>
+		</div>
+	</form>
+
+	<hr>
+	{% for i in zip %}
+	<b>Parking Zone   : {{i.parking_name}}</b><br>
+	<b>Zone Address : {{i.address}}</b><br>
+	<b>Zone Pincode : {{i.zipcode}}</b><br><br>
+	<iframe src="https://maps.google.com/?q={{i.latitude}}°N,{{i.longitude}}°E&output=svembed" width="100%" height="600" style="border:0; border-radius: 15px; border-color:black" allowfullscreen="true" loading="fast"></iframe>
+	<hr>
+	{% endfor %}
+</div>
+<!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3672.47569097889!2d72.6026!3d23.0063!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDAwJzIyLjciTiA3MsKwMzYnMDkuNCJF!5e0!3m2!1sen!2sin!4v1617372773185!5m2!1sen!2sin" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy"></iframe> -->
+<!-- <button aria-label="Cannot access your location" aria-pressed="false" id="widget-mylocation" jstcache="622" jsaction="mylocation.onButtonClick;ptrdown:ripple.play;mousedown:ripple.play;keydown:ripple.play" class="widget-mylocation-button ripple-container" jsan="7.widget-mylocation-button,7.ripple-container,0.aria-label,0.aria-pressed,0.disabled,0.id,22.jsaction" disabled="true"> -->
+{% endblock %}

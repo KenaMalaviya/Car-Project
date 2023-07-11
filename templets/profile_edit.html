@@ -1,0 +1,50 @@
+
+{% extends 'base.html' %}
+
+{% block title %}profile{% endblock title %}
+
+
+{% block body %}
+
+
+
+
+
+<!-- Modal -->
+
+            <form method="post" action="/profile/" enctype="multipart/form-data">
+                {% csrf_token %}
+                <fieldset class="form-group">
+                    {% csrf_token %}
+                    {% comment %} <legend class="border-bottom mb-4">update</legend> {% endcomment %}
+                    {% comment %} {{ p_form.as_p }} {% endcomment %}
+                </fieldset>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Full Name</label>
+                    {{p_form.username}}
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Email</label>
+                    {{p_form.email}}
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Phone</label>
+                    {{p_form.phone}}
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Address</label>
+                    {{p_form.address}}
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Image</label>
+                    {{p_form.image}}
+                </div>
+           
+        </div>
+        <div class="">
+          <button type="submit" class="btn btn-secondary">Save changes</button>
+        </div>
+    </form>
+    
+
+{% endblock body %}

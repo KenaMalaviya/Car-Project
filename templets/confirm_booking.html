@@ -1,0 +1,192 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+
+    <!-- Booking Start -->
+   <!-- <div class="container-fluid bg-secondary booking my-5">
+        <div class="container">
+            <div class="row gx-5">
+                <div class="col-lg-6 py-5">
+                    
+                </div>
+                <div class="col-lg-6">
+                    <div class="bg-primary h-100 d-flex flex-column justify-content-center text-center p-5">
+                        <h1 class="text-white mb-4">Book For A Service</h1>
+                        <form action="/Cust_Booking " method="post">
+                            {% csrf_token %}
+                            <div class="row g-3">
+                               
+                                <div class="col-12 col-sm-6">
+                                    <input type="text" value="{{booking_brand}}" name="carBrand" class="form-control border-0" placeholder="Car Brand" style="height: 55px;" required>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <input type="text" value="{{booking_car}}" name="carName"class="form-control border-0" placeholder="Car Name" style="height: 55px;" required>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <input type="text"  class="form-control border-0" name="custName" placeholder="Your Name" style="height: 55px;" required>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <input type="email" class="form-control border-0" name="Email" placeholder="Your Email" style="height: 55px;" required>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <input type="text" class="form-control border-0" name="pickup location" placeholder="pickup location" style="height: 55px;" required>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <input type="text" class="form-control border-0" name="drop location" placeholder="drop location" style="height: 55px;" required>
+                                </div>
+
+                                <div class="col-12 col-sm-6">
+                                    <input type="number" class="form-control border-0" name="Mobile" placeholder="Mobile" style="height: 55px;" required>
+                                </div>
+
+                                <div class="col-12 col-sm-6">
+                                    <div class="date" id="date1" data-target-input="nearest">
+                                        <input type="text"
+                                            class="form-control border-0 datetimepicker-input"
+                                            placeholder="Service Date" data-target="#date1" data-toggle="datetimepicker" name="DateTime"style="height: 55px;" required>
+                                    </div>
+                                </div>
+                                {% comment %} <div class="col-12 col-sm-6">
+                                    <div class="time" id="date1" data-target-input="nearest">
+                                        <input type="time"
+                                            class="form-control border-0 datetimepicker-input"
+                                            placeholder="Service Date" data-target="#date1" data-toggle="datetimepicker" name="DateTime"style="height: 55px;" required>
+                                    </div>
+                                </div> {% endcomment %}
+                                <div class="col-12">
+                                    <textarea class="form-control border-0" name="Address"placeholder="Address" required></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <textarea class="form-control border-0" name="Services" placeholder="Vehicle Problem" required></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-secondary w-100 py-3" type="submit">Book Now</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>-->
+
+        <!-- Page Header Start -->
+        <div class="container-fluid page-header">
+            <h1 class="display-3 text-uppercase text-white mb-3">Car Booking</h1>
+            <div class="d-inline-flex text-white">
+                <h6 class="text-uppercase m-0"><a class="text-white" href="">Home</a></h6>
+                <h6 class="text-body m-0 px-3">/</h6>
+                <h6 class="text-uppercase text-body m-0">Car Booking</h6>
+            </div>
+        </div>
+        <!-- Page Header Start -->
+
+        <!-- Car Booking Start -->
+    <div class="container-fluid pb-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <h2 class="mb-4">Personal Detail</h2>
+                    <div class="mb-5">
+                        <form action="/Cust_Booking/" method="POST">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-6 form-group">
+                                <input type="text" name="custfName" class="form-control p-4" placeholder="First Name" required="required">
+                            </div>
+                            <div class="col-6 form-group">
+                                <input type="text" name="custlName" class="form-control p-4" placeholder="Last Name" required="required">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 form-group">
+                                <input type="email" name="Email" class="form-control p-4" placeholder="Your Email" required="required">
+                            </div>
+                            <div class="col-6 form-group">
+                                <input type="text" name="Mobile" class="form-control p-4" placeholder="Mobile Number" required="required">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control py-3 px-4" rows="3" placeholder="Address " name="Address" required="required"></textarea>
+                        </div>
+                    </div>
+                
+                    <h2 class="mb-4">Booking Detail</h2>
+                    <div class="mb-5">
+                        <div class="row">
+                            <div class="col-6 form-group">
+                                <input type="text" value="{{booking_brand}}" name="carBrand" class="form-control border-1" placeholder="Car Brand" style="height: 55px;" required>
+                            </div>
+                            <div class="col-6 form-group">
+                                <input type="text" value="{{booking_car}}" name="carName"class="form-control border-1" placeholder="Car Name" style="height: 55px;" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 form-group">
+                                <input type="text" class="form-control border-1" name="pickup location" placeholder="pickup location" style="height: 55px;" required>
+                            </div>
+                            
+                            <div class="col-6 form-group">
+                                <input type="text" class="form-control border-1" name="drop location" placeholder="drop location" style="height: 55px;" required>
+                            </div>
+                            
+                        </div>
+                        <div class="row">
+                            <div class="col-6 form-group">
+                                <div class="date" id="date2" data-target-input="nearest">
+                                    <input type="text" name="DateTime" class="form-control p-4 datetimepicker-input" placeholder="Pickup Date"
+                                        data-target="#date2" data-toggle="datetimepicker" />
+                                </div>
+                            </div>
+                            <div class="col-6 form-group">
+                                <div class="time" id="time2" data-target-input="nearest">
+                                    <input type="text" class="form-control p-4 datetimepicker-input" placeholder="Pickup Time"
+                                        data-target="#time2" data-toggle="datetimepicker" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control py-3 px-4" name="Services" rows="3" placeholder="Vehicle Problem" required="required"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-8 from-group">
+                    <button class="btn btn-secondary w-100 py-3" type="submit">Book Now</button>
+                </div>
+                </form>
+                <!--<div class="col-lg-4">
+                    <div class="bg-secondary p-5 mb-5">
+                        <h2 class="text-primary mb-4">Payment</h2>
+                        <div class="form-group">
+                            <div class="custom-control custom-radio">
+                                <input type="radio" class="custom-control-input" name="payment" id="paypal">
+                                <label class="custom-control-label" for="paypal">Paypal</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="custom-control custom-radio">
+                                <input type="radio" class="custom-control-input" name="payment" id="directcheck">
+                                <label class="custom-control-label" for="directcheck">Direct Check</label>
+                            </div>
+                        </div>
+                        <div class="form-group mb-4">
+                            <div class="custom-control custom-radio">
+                                <input type="radio" class="custom-control-input" name="payment" id="banktransfer">
+                                <label class="custom-control-label" for="banktransfer">Bank Transfer</label>
+                            </div>
+                        </div>
+                        <button class="btn btn-block btn-primary py-3">Reserve Now</button>
+                    </div>
+                </div>-->
+            </div>
+        </div>
+    </div>
+    <!-- Car Booking End -->
+
+    <!-- Booking End -->
+
+
+
+
+{% endblock body %}

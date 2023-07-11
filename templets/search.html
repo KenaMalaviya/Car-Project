@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<div class="container table-responsible my-5">
+    <nav class="navbar navbar-light"  style="background-color: #e3f2fd;">
+        <form class="form-inline my-2 my-lg-0" method="GET" action="/search">
+          <input class="form-control mr-sm-2" type="search" name="query" id="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </nav>
+
+      {% comment %} <h2>Search results : </h2>
+   {% if allprices|length < 1 %}
+     <p>No search results</p>
+      Your search query : <b>{{query}}</b> did not match any documents. <br>
+      Suggestions:
+      <ul>
+      <li>Make sure that all words are spelled correctly.</li>
+      <li>Try more general keywords.</li>
+     <li> Try fewer keywords.</li>
+     <li> Try different keywords.</li>
+      </li>
+      </ul>
+
+      {% endif %}  {% endcomment %}
+<table class="table  table-hover">
+    
+   
+    <thead class="thead-dark">
+        <tr>
+          <th scope="col">Carname</th>
+          <th scope="col">Brand</th>
+          <th scope="col">Oil-changing</th>
+          <th scope="col">Batteries</th>
+          <th scope="col">Engine_Service</th>
+          <th scope="col">Tires_Wheels</th>
+          <th scope="col">Steering_Suspension</th>
+        </tr>
+      </thead>
+      <tbody>
+          {% for cp in allPrices %}
+        <tr>
+          <td>{{cp.car_name}}</td>
+          <td>{{cp.brand_name}}</td>
+          <td>&#8377;{{cp.oil_changing_price}}</td>
+          <td>&#8377;{{cp.batteries}}</td>
+          <td>&#8377;{{cp.engine_service}}</td>
+          <td>&#8377;{{cp.tire_wheel}}</td>
+          <td>&#8377;{{cp.steering_suspension}}</td>
+  
+  
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+
+ 
+
+<!-- Back to Top -->
+<a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+
+{% endblock body %}

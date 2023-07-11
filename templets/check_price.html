@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+{% load static %}
+
+
+<!-- Page Header Start -->
+<div class="container-fluid page-header">
+  <h1 class="display-3 text-uppercase text-white mb-3">Service</h1>
+  <div class="d-inline-flex text-white">
+      <h6 class="text-uppercase m-0"><a class="text-white" href="">Home</a></h6>
+      <h6 class="text-body m-0 px-3">/</h6>
+      <h6 class="text-uppercase text-body m-0">Service</h6>
+  </div>
+</div>
+<!-- Page Header End -->
+
+ <table>
+  <!-- <thead class="thead-light">
+    <tr>
+      <th scope="col">Carname</th>
+      <th scope="col">Brand</th>
+      <th scope="col">Oil-changing</th>
+      <th scope="col">Engine-diagostic</th>
+      <th scope="col">Steering & tires</th>
+      <th scope="col">Air-condtioning</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody> -->
+    {% for cp in check_price_data %}
+
+      <td>
+
+   <!-- <div class="row"> -->
+      <div class="col-sm-6">
+        <div class="card bg-light mb-3" style="width: 23rem;">
+          {% comment %} <img src="https://source.unsplash.com/100x100/?car" class="card-img-top"style="width:23rem;height:200px;" alt="..."> {% endcomment %}
+          <!-- <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/2006-2009_{{cp.car_name}}_%282018-10-19%29_01.jpg/800px-2006-2009_{{cp.car_name}}_%282018-10-19%29_01.jpg -->
+            <!-- " class="card-img-top" alt="..."> -->
+          <div class="card bg-light">
+           <center> <h3 class="card-title">{{cp.brand_name}}</h3>
+            <h4 class="card-title">{{cp.car_name}}</h4></center>
+            <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+          </div>
+          <ul class="list-group list-group-flush ">
+            <li class="list-group-item"><b>Oil-changing satrt At     </b>-&#8377;{{cp.oil_changing_price}}</li>
+            <li class="list-group-item"><b>Batteries At              </b>-&#8377;{{cp.batteries}}</li>
+            <li class="list-group-item"><b>Engine_Service At         </b>-&#8377;{{cp.engine_service}}</li>
+            <li class="list-group-item"><b>Tires_Wheels At           </b>-&#8377;{{cp.tire_wheel}}</li>
+            <li class="list-group-item"><b>Steering_Suspension At    </b>-&#8377;{{cp.steering_suspension}}</li>
+          </ul>
+          <div class="card-body">
+            <a href="/confirm-booking/{{cp.car_name}}" class="btn btn-primary btn-lg btn-block">Book Now</a>
+          </div>
+        </div>
+       </div>
+    <!-- </div> --> 
+
+    <!-- <tr>
+        <td>{{cp.car_name}}</td>
+        <td>{{cp.brand_name}}</td>
+        <td>{{cp.oil_changing_price}}</td>
+        <td>{{cp.engine_service}}</td>
+        <td>{{cp.tire_wheel_service}}</td>
+        <td>{{cp.air_conditioning}}</td>
+        <td><a href="/confirm-booking/{{cp.car_name}}">Booking</a></td> -->
+        
+      </td>
+ 
+    {% endfor %}
+  </tbody>
+</table>
+
+<!-- <div class="">
+
+  <a href="/booking"><button class="btn btn-outline-primary">Car selection</button></a>
+  <a href="/menu-price"><button class="btn btn-outline-primary">All cars</button></a>
+
+</div> -->
+
+<!-- Footer Start -->
+<div class="container-fluid bg-dark text-light footer pt-5 mt-5">
+  <div class="container py-5">
+    <div class="row g-5">
+      <div class="col-lg-3 col-md-6">
+        <h4 class="text-light mb-4">Address</h4>
+        <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>5, Meghvarsha Appartment, Ashram Rd, opp. Bank of Baroda, Usmanpura, Ahmedabad, Gujarat 380013</p>
+        <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+91 7046834641</p>
+        <p class="mb-2"><i class="fa fa-envelope me-3"></i>carserviceshub@example.com</p>
+        <div class="d-flex pt-2">
+          <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
+          <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
+          <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
+          <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <h4 class="text-light mb-4">Opening Hours</h4>
+        <h6 class="text-light">Monday - Friday:</h6>
+        <p class="mb-4">09.00 AM - 09.00 PM</p>
+        <h6 class="text-light">Saturday - Sunday:</h6>
+        <p class="mb-0">09.00 AM - 12.00 PM</p>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <h4 class="text-light mb-4">Services</h4>
+        <a class="btn btn-link" href="">Diagnostic Test</a>
+        <a class="btn btn-link" href="">Engine Servicing</a>
+        <a class="btn btn-link" href="">Tires Replacement</a>
+        <a class="btn btn-link" href="">Oil Changing</a>
+        <a class="btn btn-link" href="">Vacuam Cleaning</a>
+      </div>
+
+    </div>
+  </div>
+  <div class="container">
+    <div class="copyright">
+      <div class="row">
+        <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+          &copy; <a class="border-bottom" href="#">carserviceshub</a>, All Rights Reserved.<br>
+          Designed By <a class="border-bottom">punit patel</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Footer End -->
+
+<!-- Back to Top -->
+<a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+{% endblock body %}

@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %}invoice{% endblock title %}
+
+{% block body %}
+
+<div class="text-center wow fadeInUp mt-3" data-wow-delay="0.1s">
+    <h3 class="text-primary text-uppercase">// Invoice History //</h3>
+    <br>
+
+<div class="container table-responsible">
+    <table class="table  table-hover">
+       
+       
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Sno.</th>
+                <th scope="col">Car Brand</th>
+                <th scope="col">Car Name</th>
+                <th scope="col">Services</th>
+                <th scope="col">Date</th>
+                <th scope="col">Cost</th>
+                <th scope="col">Invoice</th>
+        
+              </tr>
+            </thead>
+            <tbody>
+                {% comment %} {% if user.is_authenticated %} {% endcomment %}
+                {% for detail in booking_detail %}
+                <tr>
+                    <th scope="row">{{forloop.counter}}</th>
+                    <td>{{detail.car_Brand}}</td>
+                    <td>{{detail.car_name}}</td>
+                    <td>{{detail.Services}}</td>
+                    <td>{{detail.dateTime}}</td>
+                    <td>	&#8377;{{detail.cost}}</td>
+                    <td><a href='/invoice_generate/{{detail.book_id}}' class="btn btn-sm btn-info mt-1">Get Bill</a ></td>
+                  </tr>
+                {% endfor %}
+                {% comment %} {%endif%} {% endcomment %}
+              
+             
+            </tbody>
+          </table>
+    
+  </div>
+</div>
+
+
+{% endblock body %}

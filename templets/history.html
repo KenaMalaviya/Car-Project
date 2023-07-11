@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block title %}History{% endblock title %}
+
+{% block body %}
+
+ <!-- Page Header Start -->
+ <div class="container-fluid page-header">
+  <h1 class="display-3 text-uppercase text-white mb-3">History</h1>
+  <div class="d-inline-flex text-white">
+      <h6 class="text-uppercase m-0"><a class="text-white" href="">Home</a></h6>
+      <h6 class="text-body m-0 px-3">/</h6>
+      <h6 class="text-uppercase text-body m-0">History</h6>
+  </div>
+</div>
+<!-- Page Header Start -->
+
+<div class="text-center wow fadeInUp mt-3" data-wow-delay="0.1s">
+    <h3 class="text-primary text-uppercase">//Booking History //</h3>
+    <br>
+
+<div class="container table-responsible">
+    <table class="table  table-hover">
+       
+       
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Sno.</th>
+                <th scope="col">Name</th>
+                <th scope="col">Car Brand</th>
+                <th scope="col">Car Name</th>
+                <th scope="col">Services</th>
+                <th scope="col">Date</th>
+                <th scope="col">Status</th>
+        
+              </tr>
+            </thead>
+            <tbody>
+                {% comment %} {% if user.is_authenticated %} {% endcomment %}
+                {% for detail in booking_detail %}
+                <tr>
+                    <th scope="row">{{forloop.counter}}</th>
+                    <td>{{detail.cust_name}}</td> 
+                    <td>{{detail.car_Brand}}</td>
+                    <td>{{detail.car_name}}</td>
+                    <td>{{detail.Services}}</td>
+                    <td>{{detail.dateTime}}</td>
+                    <td>{{detail.status}}</td>
+                  </tr>
+                {% endfor %}
+                {% comment %} {%endif%} {% endcomment %}
+              
+             
+            </tbody>
+          </table>
+    
+  </div>
+</div>
+
+
+{% endblock body %}
